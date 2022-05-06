@@ -17,7 +17,7 @@ export async function getServerSideProps() {
 export default function category(props) {
   return (
     <main className={styles.main}>
-        <h1>Choose Your Book&apos;s Category</h1>
+        <h1>Choose Your Book&apos;s Category😉</h1>
       <ul>
         {props.data.map((cat) => (
           <li key={cat.id}>
