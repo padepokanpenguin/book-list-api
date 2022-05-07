@@ -1,15 +1,57 @@
 .main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10;
 }
-.main .cover{
+.main .cover {
   text-align: center;
   width: 15rem;
   height: 18rem;
-  border: .5px solid #ccc;
+  border: 0.5px solid #ccc;
   margin: 1.2rem;
   align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.main .cover:hover {
+  background-color: #ccc;
+  border: 0.5px solid #fff;
+  cursor: pointer;
 }
 
+.main .bookTitle {
+  font-size: 0.85rem;
+  justify-content: center;
+}
+
+.main .bookAuth {
+  line-height: 0.25rem;
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  display: flex;
+  justify-content:space-around;
+  margin-top: 1.5rem;
+}
+.btn button {
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  font-size: 1.3rem;
+
+}
+.btn button:hover {
+  background-color: gray;
+  border: .8px solid #ccc;
+  color: white;
+}
+
+@media screen and (max-width: 640px) {
+  .btn button {
+    padding: 1rem 1.4rem;
+  }
+}

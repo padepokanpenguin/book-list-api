@@ -21,7 +21,7 @@ export default function category(props) {
       <ul>
         {props.data.map((cat) => (
           <li key={cat.id}>
-            <Link href={`/category/${cat.id}`}>{cat.name}</Link>
+            <Link href={`/category/${cat.id}/page/0`}>{cat.name}</Link>
           </li>
         ))}
       </ul>
