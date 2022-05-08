@@ -21,6 +21,8 @@ export default function Favourite() {
       </div>
     </div>
   ));
+
+  console.log(bookList);
   const favouriteBookList = ctx.favouriteBooks.length > 0;
   return (
     <Layout>
@@ -29,9 +31,7 @@ export default function Favourite() {
           You don&apos;t have any favourite&apos;s book yet!
         </p>
       )}
-      <main>
-          {bookList}
-      </main>
+      <main>{bookList}</main>
     </Layout>
   );
 }

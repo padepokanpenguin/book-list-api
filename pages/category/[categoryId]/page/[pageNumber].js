@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import BookPage from "../../../../components/BooksPage/BooksPage";
+import BookPage from "../../../../components/BookList/BookList";
 
 export async function getServerSideProps(context) {
   const { params } = context;

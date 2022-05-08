@@ -19,7 +19,7 @@ const favouriteBookReducer = (state, action) => {
     if (existingFavouriteBook) {
       return alert("You had this book in favourite list");
     } else {
-      updateFavouriteBooks = statet.favouriteBooks.concat(action.favouriteBook);
+      updateFavouriteBooks = state.favouriteBooks.concat(action.favouriteBook);
     }
     return {
       favouriteBooks: updateFavouriteBooks,
