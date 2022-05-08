@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import styles from "../../../../styles/BookListPage.module.css";
+import BookPage from "../../../../components/BooksPage/BooksPage";
+
 export async function getServerSideProps(context) {
   const { params } = context;
   const { categoryId, pageNumber } = params;
@@ -18,49 +19,30 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function pagination(props) {
+export default function Pagination(props) {
   const router = useRouter();
   const categoryId = props.data[0].category_id;
   const countDataLength = props.data.length;
 
-  const nextPageHandler = () =>
-    router.push(`/category/${categoryId}/page/${props.page + 1}`);
 
-  const prevPageHandler = () =>
-    router.push(`/category/${categoryId}/page/${props.page - 1}`);
+  const nextPageHandler = () => {
+    if (countDataLength === 15) {
+      router.push(`/category/${categoryId}/page/${props.page + 1}`);
+    }
+  };
+
+  const prevPageHandler = () => {
+    if (props.page > 0) {
+      router.push(`/category/${categoryId}/page/${props.page - 1}`);
+
+    }
+  }
 
   return (
-    <div className="container">
-      <main className={styles.main}>
-        {props.data.map((book, i) => (
-          <div className={styles.cover} key={i}>
-            <div className={styles.bookTitle}>
-              <h2>{book.title}</h2>
-            </div>
-            <div className={styles.bookAuth}>
-              {book.authors.map((author) => (
-                <p key={author}>{author}</p>
-              ))}
-            </div>
-          </div>
-        ))}
-        <div className="favourite-icon">
-          <button>🖤</button>
-        </div>
-      </main>
-      <div className={styles.btn}>
-        <div>
-          <button onClick={prevPageHandler} disabled={props.page <= 0}>
-            Prev
-          </button>
-        </div>
-        <div>
-          <button onClick={nextPageHandler} disabled={countDataLength < 15}>
-            Next
-          </button>
-        </div>
-      </div>
-    </div>
+    <BookPage
+      data={props.data}
+      nextHandler={nextPageHandler}
+      prevHandler={prevPageHandler}
+    />
   );
 }
-// ❤️🖤
