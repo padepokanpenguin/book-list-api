@@ -8,20 +8,11 @@ const defaultFavouriteList = {
 
 const favouriteBookReducer = (state, action) => {
   if (action.type === "ADD") {
-    const existingFavouriteBookIndex = state.favouriteBooks.findIndex(
-      (book) => book.id === action.book.id
-    );
-
-    const existingFavouriteBook =
-      state.favouriteBooks[existingFavouriteBookIndex];
-
+    
     let updateFavouriteBooks;
 
-    if (existingFavouriteBook) {
-      return alert("You had this book in favourite list");
-    } else {
-      updateFavouriteBooks = state.favouriteBooks.concat(action.favouriteBook);
-    }
+    updateFavouriteBooks = state.favouriteBooks.concat(action.favouriteBook)
+
     return {
       favouriteBooks: updateFavouriteBooks,
     };

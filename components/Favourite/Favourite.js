@@ -1,10 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Layout from "../Layout/Layout";
 import FavouriteContext from "../../store/favourite-context";
 import styles from "../../styles/Favourite.module.css";
+import Link from "next/link";
 
 export default function Favourite() {
   const ctx = useContext(FavouriteContext);
+
+  const favouriteBookList = ctx.favouriteBooks.length > 0;
 
   const bookList = ctx.favouriteBooks.map((book, i) => (
     <div className={styles.cover} key={i}>
@@ -17,13 +20,11 @@ export default function Favourite() {
         ))}
       </div>
       <div className={styles.favouriteIcon}>
-        <div onClick={addToFavourite}>{favouriteBtn}</div>
+        <div>❤️</div>
       </div>
     </div>
   ));
 
-  console.log(bookList);
-  const favouriteBookList = ctx.favouriteBooks.length > 0;
   return (
     <Layout>
       {!favouriteBookList && (
@@ -31,7 +32,17 @@ export default function Favourite() {
           You don&apos;t have any favourite&apos;s book yet!
         </p>
       )}
-      <main>{bookList}</main>
+      {favouriteBookList && (
+        <div>
+          <div>
+            <h1 className={styles.titlePage}>Your Favourite&apos;s Book</h1>
+          </div>
+          <main className={styles.main}>{bookList}</main>
+          <div className={styles.Link}>
+            <Link href={`/category`}>choose other category</Link>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }

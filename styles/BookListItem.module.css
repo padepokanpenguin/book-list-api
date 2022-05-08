@@ -26,13 +26,6 @@
   width: 100%;
   height: 100%;
 }
-.favouriteIcon {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-  font-size: 1.5rem;
-}
 
 .favouritePage {
   max-width: 85%;

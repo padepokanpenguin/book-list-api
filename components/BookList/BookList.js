@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Layout from "../Layout/Layout";
 import BookListItem from "./BookListItem";
-import styles from "../../styles/BookPage.module.css";
+import styles from "../../styles/BookList.module.css";
 
 export default function BookList(props) {
   const booksList = props.data.map((dat) => (

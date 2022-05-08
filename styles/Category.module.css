@@ -22,3 +22,11 @@
     background-color: #ccc;
   }
   
+  @media screen and (max-width: 640px) {
+    .main h1 {
+      font-size: 1.5rem;
+    }
+    .main ul li {
+      font-size: 1.2rem;
+    }
+  }

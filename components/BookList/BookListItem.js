@@ -13,10 +13,8 @@ export default function BookListItem(props) {
     });
   };
 
-  const favouriteBtn = ctx.isFavourite ? "❤️" : "🖤";
-
   return (
-    <div onSubmit={addToFavourite} className={styles.cover}>
+    <div onClick={addToFavourite} className={styles.cover}>
       <div className={styles.bookTitle}>
         <h2>{props.title}</h2>
       </div>
@@ -24,9 +22,6 @@ export default function BookListItem(props) {
         {props.authors.map((author) => (
           <p key={author}>{author}</p>
         ))}
-      </div>
-      <div className={styles.favouriteIcon}>
-        <div>{favouriteBtn}</div>
       </div>
     </div>
   );
