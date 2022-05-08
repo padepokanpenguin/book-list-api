@@ -3,6 +3,7 @@ import FavouriteContext from "./favourite-context";
 
 const defaultFavouriteList = {
   favouriteBooks: [],
+  isFavourite: false,
 };
 
 const favouriteBookReducer = (state, action) => {
@@ -46,20 +47,21 @@ const favouriteBookReducer = (state, action) => {
       favouriteBooks: updateFavouriteBooks,
     };
   }
+  return defaultFavouriteList;
 };
 
-export const FavouriteBookstProvider = (props) => {
+export const FavouriteBooksProvider = (props) => {
   const [isFavourite, setIsFavourite] = useState(false);
-  const [favouriteBookState, dispatchFavouriteBook] = useReducer(
+  const [favouriteBookState, dispatchFavouriteBookAction] = useReducer(
     favouriteBookReducer,
     defaultFavouriteList
   );
   const addBookHandler = (item) => {
-    dispatchFavouriteBook({ type: "ADD", item: item });
+    dispatchFavouriteBookAction({ type: "ADD", favouriteBook: item });
     setIsFavourite(true);
   };
   const removeBookHandler = (id) => {
-    dispatchFavouriteBook({ type: "REMOVE", id: id });
+    dispatchFavouriteBookAction({ type: "REMOVE", id: id });
     setIsFavourite(false);
   };
 
@@ -71,9 +73,7 @@ export const FavouriteBookstProvider = (props) => {
   };
 
   return (
-    <FavouriteContext.Provider
-      value={favouriteBooksContext}
-    >
+    <FavouriteContext.Provider value={favouriteBooksContext}>
       {props.children}
     </FavouriteContext.Provider>
   );

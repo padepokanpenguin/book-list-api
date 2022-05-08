@@ -13,6 +13,7 @@
 .cover:hover {
   background-color: #ccc;
   border: 0.5px solid #fff;
+  cursor: pointer;
 }
 
 .bookTitle {
@@ -31,10 +32,6 @@
   justify-content: flex-end;
   padding: 10px;
   font-size: 1.5rem;
-}
-
-.favouriteIcon:hover {
-  cursor: pointer;
 }
 
 .favouritePage {
