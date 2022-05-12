@@ -1,12 +1,7 @@
 import "../styles/globals.css";
-import { FavouriteBooksProvider } from "../store/FavouriteProvider";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <FavouriteBooksProvider>
-      <Component {...pageProps} />
-    </FavouriteBooksProvider>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
