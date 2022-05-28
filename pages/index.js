@@ -9,9 +9,6 @@ export default function Home() {
           <li>
             <Link href="/category">Category</Link>
           </li>
-          <li>
-            <Link href="/favourite">Your Favourite</Link>
-          </li>
         </ul>
       </main>
     </Layout>

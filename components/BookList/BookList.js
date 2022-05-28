@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Layout from "../Layout/Layout";
 import BookListItem from "./BookListItem";
 import useFavouriteStore from "../../store/favourite.store";
@@ -20,9 +19,6 @@ export default function BookList(props) {
 
   return (
     <Layout>
-      <div className={styles.favouritePage}>
-        <Link href={`/favourite`}> Go to Favourite</Link>
-      </div>
       <main className={styles.main}>{booksList}</main>
       <div className={styles.btn}>
         <div>

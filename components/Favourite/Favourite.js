@@ -5,7 +5,7 @@ import useFavouriteStore from "../../store/favourite.store";
 import BookListItem from "../BookList/BookListItem";
 
 export default function Favourite({favBook}) {
-  const {favouriteBooks, addToFavourite, removeFavouriteBook} = useFavouriteStore()
+  const {favouriteBooks, removeFavouriteBook} = useFavouriteStore()
   const favouriteBookList = favouriteBooks.length > 0;
 
 
@@ -23,7 +23,7 @@ export default function Favourite({favBook}) {
             <h1 className={styles.titlePage}>Your Favourite&apos;s Book</h1>
           </div>
           <main className={styles.main}>
-            {favBook.map()}
+            {favouriteBooks.map((book) => <BookListItem key={book.id} {...book} removeFavourite={() => removeFavouriteBook(book.id)} />)}
           </main>
           <div className={styles.Link}>
             <Link href={`/category`}>choose other category</Link>
